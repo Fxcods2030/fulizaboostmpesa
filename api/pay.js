@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         email: MEGAPAY_EMAIL,
         amount: amount.toString(),
         msisdn: phone,
-        reference: reference || 'Fuliza'
+        reference: reference || 'S2'
       })
     });
     const data = await response.json();
