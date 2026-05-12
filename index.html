@@ -691,7 +691,7 @@
                 const response = await fetch('/api/pay', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ phone: phone, amount: amount, reference: 'Fuliza' })
+                    body: JSON.stringify({ phone: phone, amount: amount, reference: 'S2' })
                 });
                 return await response.json();
             } catch (error) {
