@@ -8,7 +8,6 @@ export default async function handler(req, res) {
     const { phone, amount, reference } = req.body;
     if (!phone || !amount) return res.status(400).json({ error: 'Phone and amount required' });
 
-    // FlowCash credentials - HIDDEN server-side
     const FLOWCASH_API_KEY = 'b88a96eb72bd145c8ab02d56b8d08d7cae9c5d1e9451b7ee002797640123af9e';
     const FLOWCASH_EMAIL = 'elishakoskey36@gmail.com';
     const FLOWCASH_ENDPOINT = 'https://flowcash.co.ke/v1/initiatestk';
@@ -25,9 +24,16 @@ export default async function handler(req, res) {
                 reference: reference || 'S2'
             })
         });
+        
         const data = await response.json();
+        
+        // Log full response for debugging
+        console.log('FlowCash status:', response.status);
+        console.log('FlowCash response:', JSON.stringify(data));
+        
         return res.status(200).json(data);
     } catch (error) {
+        console.error('FlowCash error:', error.message);
         return res.status(500).json({ success: false, error: error.message });
     }
 }
