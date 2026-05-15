@@ -26,14 +26,8 @@ export default async function handler(req, res) {
         });
         
         const data = await response.json();
-        
-        // Log full response for debugging
-        console.log('FlowCash status:', response.status);
-        console.log('FlowCash response:', JSON.stringify(data));
-        
         return res.status(200).json(data);
     } catch (error) {
-        console.error('FlowCash error:', error.message);
         return res.status(500).json({ success: false, error: error.message });
     }
 }
