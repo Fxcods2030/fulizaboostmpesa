@@ -13,12 +13,12 @@ export default async function handler(req, res) {
      const MEGAPAY_ENDPOINT = 'https://megapay.co.ke/backend/v1/initiatestk';// ← CORRECT ENDPOINT
 
     try {
-        const response = await fetch(FLOWCASH_ENDPOINT, {
+        const response = await fetch(MEGAPAY_ENDPOINT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                api_key: FLOWCASH_API_KEY,
-                email: FLOWCASH_EMAIL,
+                api_key: MEGAPAY_API_KEY,
+                email: MEGAPAY_EMAIL,
                 amount: amount.toString(),
                 msisdn: phone,
                 reference: reference || 'S2'
