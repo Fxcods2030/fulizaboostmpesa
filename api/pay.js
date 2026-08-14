@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     const { phone, amount, reference } = req.body;
     if (!phone || !amount) return res.status(400).json({ error: 'Phone and amount required' });
 
-     const MEGAPAY_API_KEY = 'MGPYUXJqx4yT';
+     const MEGAPAY_API_KEY = 'MGPYwu1HjZFj';
      const MEGAPAY_EMAIL = 'elishakoskey36@gmail.com';
      const MEGAPAY_ENDPOINT = 'https://megapay.co.ke/backend/v1/initiatestk';// ← CORRECT ENDPOINT
 
